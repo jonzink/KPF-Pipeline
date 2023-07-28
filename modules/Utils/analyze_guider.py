@@ -109,7 +109,23 @@ class AnalyzeGuider:
             self.y0 = y0_fit
         except:
             self.good_fit = False
-        
+
+
+    def add_header_keyword_seeing(self):
+
+        """
+        Add header keywords related to seeing in the KPF Guide Camera.
+
+        Args:
+            None
+
+        Attributes:
+            None
+
+        Returns:
+            newL0 - a L0 object with seeing keyword added
+        """
+
 
     def plot_guider_image(self, fig_path=None, show_plot=False):
 
@@ -386,7 +402,7 @@ class AnalyzeGuider:
         axes[1,0].step(freqs, Pxx*1e6, where='mid', color='royalblue', label='X - Guiding Errors', lw=2)
         axes[1,0].step(freqs, Pyy*1e6, where='mid', color='orange',    label='Y - Guiding Errors', lw=2)
         axes[1,0].grid(True, linestyle='dashed', linewidth=1, alpha=0.5)
-        axes[1,0].set_xlabel('frequency [Hz]', fontsize=14)
+        axes[1,0].set_xlabel('Frequency [Hz]', fontsize=14)
         axes[1,0].set_ylabel('Guiding Error\n' + r'Power Spectral Density (mas$^2$/Hz)', fontsize=14)
         axes[1,0].set_xlim(min(freqs),max(freqs))
         axes[1,0].set_yscale('log')
